@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:simple_text_field/simple_input_decoration.dart';
 import 'package:simple_text_field/simple_text_field_title.dart';
 
+/// A widget that implements a text field.
 class SimpleTextField extends StatelessWidget {
   final TextEditingController controller;
   final FocusNode focusNode;
@@ -216,19 +217,29 @@ class SimpleTextField extends StatelessWidget {
     final errorBorder = defBorder.copyWith(
         borderSide: defBorderSide.copyWith(color: errorBorderColor));
 
-    final focusedBorder = defBorder.copyWith(
-        borderSide: defFocusedBorderSide.copyWith(color: borderColor));
-    final focusedErrorBorder = defBorder.copyWith(
-        borderSide: defFocusedBorderSide.copyWith(color: errorBorderColor));
+    Color focusedBorderColor = decoration.focusedBorderColor;
+    if (focusedBorderColor == null) {
+      if (themeData.brightness == Brightness.light)
+        focusedBorderColor = themeData.primaryColor;
+      else
+        focusedBorderColor = themeData.accentColor;
+    }
+    final focusedErrorBorderColor = decoration.focusedErrorBorderColor
+        ?? themeData.errorColor;
 
-    var contentPadding = decoration.contentPadding;
+    final focusedBorder = defBorder.copyWith(
+        borderSide: defFocusedBorderSide.copyWith(color: focusedBorderColor));
+    final focusedErrorBorder = defBorder.copyWith(
+        borderSide: defFocusedBorderSide.copyWith(color: focusedErrorBorderColor));
+
+    EdgeInsetsGeometry contentPadding = decoration.contentPadding;
     if (decoration.simpleBorder && contentPadding == null)
       contentPadding = const EdgeInsets.symmetric(horizontal: 10.0);
 
     final disabledColor = decoration.disabledColor ?? const Color(0x90DBDBDB);
 
-    var filled = decoration.filled;
-    var fillColor = decoration.fillColor;
+    bool filled = decoration.filled;
+    Color fillColor = decoration.fillColor;
     if (decoration.simpleBorder && !filled && !enabled) {
       filled = true;
       fillColor = disabledColor;

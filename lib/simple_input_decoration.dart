@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Class for decorating text field.
 class SimpleInputDecoration {
   final Icon icon;
   final String labelText;
@@ -48,6 +49,8 @@ class SimpleInputDecoration {
   final bool simpleBorder;  // New
   final Color borderColor;  // New
   final Color errorBorderColor; // New
+  final Color focusedBorderColor; // New
+  final Color focusedErrorBorderColor; // New
   final double borderWidth; // New
   final double focusedBorderWidth;  // New
   final BorderRadius borderRadius;  // New
@@ -100,6 +103,8 @@ class SimpleInputDecoration {
     this.simpleBorder = false,
     this.borderColor,
     this.errorBorderColor,
+    this.focusedBorderColor,
+    this.focusedErrorBorderColor,
     this.borderWidth = 1.0,
     this.focusedBorderWidth = 2.0,
     this.borderRadius = const BorderRadius.all(Radius.circular(4.0))

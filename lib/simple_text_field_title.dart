@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// A widget that implements the text field title.
 class SimpleTextFieldTitle extends StatelessWidget {
   final String title;
   final TextStyle titleStyle;
