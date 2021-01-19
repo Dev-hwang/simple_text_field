@@ -6,14 +6,14 @@ To use this package, add `simple_text_field` as a [dependency in your pubspec.ya
 
 ```yaml
 dependencies:
-  simple_text_field: ^1.0.1
+  simple_text_field: ^1.0.2
 ```
 
 ## Package composition
 
-* [SimpleTextField] - A widget that implements a text field.
-* [SimpleTextFieldTitle] - A widget that implements the text field title.
-* [SimpleInputDecoration] - Class for decorating text field.
+* [SimpleTextField] - A widget that implements a `SimpleTextField`.
+* [SimpleTextFieldTitle] - A widget that implements the title of `SimpleTextField`.
+* [SimpleInputDecoration] - Creates a bundle of the border, labels, icons, and styles used to decorate a `SimpleTextField`.
 
 ### SimpleTextField (※ Show only added options)
 

@@ -11,7 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:simple_text_field/simple_input_decoration.dart';
 import 'package:simple_text_field/simple_text_field_title.dart';
 
-/// A widget that implements a text field.
+/// A widget that implements a [SimpleTextField].
 class SimpleTextField extends StatelessWidget {
   final TextEditingController controller;
   final FocusNode focusNode;
@@ -258,7 +258,7 @@ class SimpleTextField extends StatelessWidget {
       errorText: decoration.errorText,
       errorStyle: decoration.errorStyle,
       errorMaxLines: decoration.errorMaxLines,
-      hasFloatingPlaceholder: decoration.hasFloatingPlaceholder,
+      // hasFloatingPlaceholder: decoration.hasFloatingPlaceholder,
       floatingLabelBehavior: decoration.floatingLabelBehavior,
       isCollapsed: decoration.isCollapsed,
       isDense: decoration.isDense,

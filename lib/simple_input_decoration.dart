@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Class for decorating text field.
+/// Creates a bundle of the border, labels, icons, and styles used to decorate a [SimpleTextField].
 class SimpleInputDecoration {
   final Icon icon;
   final String labelText;
@@ -14,7 +14,7 @@ class SimpleInputDecoration {
   final String errorText;
   final TextStyle errorStyle;
   final int errorMaxLines;
-  final bool hasFloatingPlaceholder;
+  // final bool hasFloatingPlaceholder; // Deprecated
   final FloatingLabelBehavior floatingLabelBehavior;
   final bool isCollapsed;
   final bool isDense;
@@ -68,7 +68,7 @@ class SimpleInputDecoration {
     this.errorText,
     this.errorStyle,
     this.errorMaxLines,
-    this.hasFloatingPlaceholder = true,
+    // this.hasFloatingPlaceholder = true,
     this.floatingLabelBehavior = FloatingLabelBehavior.auto,
     this.isCollapsed = false,
     this.isDense,
