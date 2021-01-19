@@ -88,7 +88,7 @@ class SimpleTextField extends StatelessWidget {
     this.autofocus = false,
     this.obscuringCharacter = '•',
     this.obscureText = false,
-    this.autocorrect = true,
+    this.autocorrect = false,
     this.smartDashesType,
     this.smartQuotesType,
     this.enableSuggestions = true,
