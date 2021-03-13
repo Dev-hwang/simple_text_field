@@ -2,55 +2,56 @@ import 'package:flutter/material.dart';
 
 /// Creates a bundle of the border, labels, icons, and styles used to decorate a [SimpleTextField].
 class SimpleInputDecoration {
-  final Icon icon;
-  final String labelText;
-  final TextStyle labelStyle;
-  final String helperText;
-  final TextStyle helperStyle;
-  final int helperMaxLines;
-  final String hintText;
-  final TextStyle hintStyle;
-  final int hintMaxLines;
-  final String errorText;
-  final TextStyle errorStyle;
-  final int errorMaxLines;
+  final Icon? icon;
+  final String? labelText;
+  final TextStyle? labelStyle;
+  final String? helperText;
+  final TextStyle? helperStyle;
+  final int? helperMaxLines;
+  final String? hintText;
+  final TextStyle? hintStyle;
+  final TextDirection? hintTextDirection;
+  final int? hintMaxLines;
+  final String? errorText;
+  final TextStyle? errorStyle;
+  final int? errorMaxLines;
   // final bool hasFloatingPlaceholder; // Deprecated
-  final FloatingLabelBehavior floatingLabelBehavior;
+  final FloatingLabelBehavior? floatingLabelBehavior;
   final bool isCollapsed;
-  final bool isDense;
-  final EdgeInsetsGeometry contentPadding;
-  final IconButton prefixIcon;
-  final BoxConstraints prefixIconConstraints;
-  final Widget prefix;
-  final String prefixText;
-  final TextStyle prefixStyle;
-  final IconButton suffixIcon;
-  final BoxConstraints suffixIconConstraints;
-  final Widget suffix;
-  final String suffixText;
-  final TextStyle suffixStyle;
-  final Widget counter;
-  final String counterText;
-  final TextStyle counterStyle;
+  final bool? isDense;
+  final EdgeInsetsGeometry? contentPadding;
+  final IconButton? prefixIcon;
+  final BoxConstraints? prefixIconConstraints;
+  final Widget? prefix;
+  final String? prefixText;
+  final TextStyle? prefixStyle;
+  final IconButton? suffixIcon;
+  final BoxConstraints? suffixIconConstraints;
+  final Widget? suffix;
+  final String? suffixText;
+  final TextStyle? suffixStyle;
+  final Widget? counter;
+  final String? counterText;
+  final TextStyle? counterStyle;
   final bool filled;
-  final Color fillColor;
-  final Color focusColor;
-  final Color hoverColor;
-  final Color disabledColor;  // New
-  final InputBorder border;
-  final InputBorder errorBorder;
-  final InputBorder focusedBorder;
-  final InputBorder focusedErrorBorder;
-  final InputBorder enabledBorder;
-  final InputBorder disabledBorder;
-  final String semanticCounterText;
-  final bool alignLabelWithHint;
+  final Color? fillColor;
+  final Color? focusColor;
+  final Color? hoverColor;
+  final Color? disabledColor;  // New
+  final InputBorder? border;
+  final InputBorder? errorBorder;
+  final InputBorder? focusedBorder;
+  final InputBorder? focusedErrorBorder;
+  final InputBorder? enabledBorder;
+  final InputBorder? disabledBorder;
+  final String? semanticCounterText;
+  final bool? alignLabelWithHint;
   final bool removeBorder;  // New
   final bool simpleBorder;  // New
-  final Color borderColor;  // New
-  final Color errorBorderColor; // New
-  final Color focusedBorderColor; // New
-  final Color focusedErrorBorderColor; // New
+  final Color? borderColor;  // New
+  final Color? errorBorderColor; // New
+  final Color? focusedBorderColor; // New
+  final Color? focusedErrorBorderColor; // New
   final double borderWidth; // New
   final double focusedBorderWidth;  // New
   final BorderRadius borderRadius;  // New
@@ -64,12 +65,13 @@ class SimpleInputDecoration {
     this.helperMaxLines,
     this.hintText,
     this.hintStyle,
+    this.hintTextDirection,
     this.hintMaxLines,
     this.errorText,
     this.errorStyle,
     this.errorMaxLines,
     // this.hasFloatingPlaceholder = true,
-    this.floatingLabelBehavior = FloatingLabelBehavior.auto,
+    this.floatingLabelBehavior,
     this.isCollapsed = false,
     this.isDense,
     this.contentPadding,
@@ -108,12 +110,6 @@ class SimpleInputDecoration {
     this.borderWidth = 1.0,
     this.focusedBorderWidth = 2.0,
     this.borderRadius = const BorderRadius.all(Radius.circular(4.0))
-  })  : assert(filled != null),
-        assert(removeBorder != null),
-        assert(simpleBorder != null),
-        assert(borderWidth != null),
-        assert(focusedBorderWidth != null),
-        assert(borderWidth >= 0.0),
-        assert(focusedBorderWidth >= 0.0),
-        assert(borderRadius != null);
+  })  : assert(borderWidth >= 0.0),
+        assert(focusedBorderWidth >= 0.0);
 }

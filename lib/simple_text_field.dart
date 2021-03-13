@@ -13,62 +13,64 @@ import 'package:simple_text_field/simple_text_field_title.dart';
 
 /// A widget that implements a [SimpleTextField].
 class SimpleTextField extends StatelessWidget {
-  final TextEditingController controller;
-  final FocusNode focusNode;
+  final TextEditingController? controller;
+  final FocusNode? focusNode;
   final SimpleInputDecoration decoration; // Redefine
-  final SimpleTextFieldTitle title; // New
+  final SimpleTextFieldTitle? title; // New
   final CrossAxisAlignment titleAlignment;  // New
-  final TextInputType keyboardType;
-  final TextInputAction textInputAction;
+  final TextInputType? keyboardType;
+  final TextInputAction? textInputAction;
   final TextCapitalization textCapitalization;
-  final TextStyle style;
-  final StrutStyle strutStyle;
+  final TextStyle? style;
+  final StrutStyle? strutStyle;
   final TextAlign textAlign;
-  final TextAlignVertical textAlignVertical;
-  final TextDirection textDirection;
+  final TextAlignVertical? textAlignVertical;
+  final TextDirection? textDirection;
   final bool readOnly;
-  final ToolbarOptions toolbarOptions;
-  final bool showCursor;
+  final ToolbarOptions? toolbarOptions;
+  final bool? showCursor;
   final bool autofocus;
   final String obscuringCharacter;
   final bool obscureText;
   final bool autocorrect;
-  final SmartDashesType smartDashesType;
-  final SmartQuotesType smartQuotesType;
+  final SmartDashesType? smartDashesType;
+  final SmartQuotesType? smartQuotesType;
   final bool enableSuggestions;
   final int maxLines;
-  final int minLines;
+  final int? minLines;
   final bool expands;
-  final int maxLength;
-  final bool maxLengthEnforced;
-  final ValueChanged<String> onChanged;
-  final VoidCallback onEditingComplete;
-  final ValueChanged<String> onSubmitted;
-  final AppPrivateCommandCallback onAppPrivateCommand;
-  final List<TextInputFormatter> inputFormatters;
+  final int? maxLength;
+  // final bool maxLengthEnforced; // Deprecated
+  final MaxLengthEnforcement? maxLengthEnforcement;
+  final ValueChanged<String>? onChanged;
+  final VoidCallback? onEditingComplete;
+  final ValueChanged<String>? onSubmitted;
+  final AppPrivateCommandCallback? onAppPrivateCommand;
+  final List<TextInputFormatter>? inputFormatters;
   final bool enabled;
   final double cursorWidth;
-  final double cursorHeight;
-  final Radius cursorRadius;
-  final Color cursorColor;
+  final double? cursorHeight;
+  final Radius? cursorRadius;
+  final Color? cursorColor;
   final ui.BoxHeightStyle selectionHeightStyle;
   final ui.BoxWidthStyle selectionWidthStyle;
-  final Brightness keyboardAppearance;
+  final Brightness? keyboardAppearance;
   final EdgeInsets scrollPadding;
   final DragStartBehavior dragStartBehavior;
   final bool enableInteractiveSelection;
-  final GestureTapCallback onTap;
-  final MouseCursor mouseCursor;
-  final InputCounterWidgetBuilder buildCounter;
-  final ScrollController scrollController;
-  final ScrollPhysics scrollPhysics;
-  final Iterable<String> autofillHints;
-  final String restorationId;
+  final TextSelectionControls? selectionControls;
+  final GestureTapCallback? onTap;
+  final MouseCursor? mouseCursor;
+  final InputCounterWidgetBuilder? buildCounter;
+  final ScrollController? scrollController;
+  final ScrollPhysics? scrollPhysics;
+  final Iterable<String>? autofillHints;
+  final String? restorationId;
   final bool ignoreWhiteSpace;  // New
   final bool ignoreSpecialChar; // New
 
   const SimpleTextField({
-    Key key,
+    Key? key,
     this.controller,
     this.focusNode,
     this.decoration = const SimpleInputDecoration(),
@@ -96,7 +98,8 @@ class SimpleTextField extends StatelessWidget {
     this.minLines,
     this.expands = false,
     this.maxLength,
-    this.maxLengthEnforced = true,
+    // this.maxLengthEnforced = true,
+    this.maxLengthEnforcement,
     this.onChanged,
     this.onEditingComplete,
     this.onSubmitted,
@@ -113,6 +116,7 @@ class SimpleTextField extends StatelessWidget {
     this.scrollPadding = const EdgeInsets.all(20.0),
     this.dragStartBehavior = DragStartBehavior.start,
     this.enableInteractiveSelection = true,
+    this.selectionControls,
     this.onTap,
     this.mouseCursor,
     this.buildCounter,
@@ -152,7 +156,8 @@ class SimpleTextField extends StatelessWidget {
       minLines: minLines,
       expands: expands,
       maxLength: maxLength,
-      maxLengthEnforced: maxLengthEnforced,
+      // maxLengthEnforced: maxLengthEnforced,
+      maxLengthEnforcement: maxLengthEnforcement,
       onChanged: onChanged,
       onEditingComplete: onEditingComplete,
       onSubmitted: onSubmitted,
@@ -169,6 +174,7 @@ class SimpleTextField extends StatelessWidget {
       scrollPadding: scrollPadding,
       dragStartBehavior: dragStartBehavior,
       enableInteractiveSelection: enableInteractiveSelection,
+      selectionControls: selectionControls,
       onTap: onTap,
       mouseCursor: mouseCursor,
       buildCounter: buildCounter,
@@ -182,7 +188,7 @@ class SimpleTextField extends StatelessWidget {
       textField = Column(
         crossAxisAlignment: titleAlignment,
         children: [
-          title,
+          title!,
           textField
         ],
       );
@@ -192,8 +198,8 @@ class SimpleTextField extends StatelessWidget {
 
   List<TextInputFormatter> _getInputFormatters() {
     final result = <TextInputFormatter>[];
-    if (inputFormatters != null && inputFormatters.isNotEmpty)
-      result.addAll(inputFormatters);
+    if (inputFormatters != null && inputFormatters!.isNotEmpty)
+      result.addAll(inputFormatters!);
     if (ignoreWhiteSpace)
       result.add(FilteringTextInputFormatter.deny(RegExp(r"[\s]")));
     if (ignoreSpecialChar)
@@ -217,7 +223,7 @@ class SimpleTextField extends StatelessWidget {
     final errorBorder = defBorder.copyWith(
         borderSide: defBorderSide.copyWith(color: errorBorderColor));
 
-    Color focusedBorderColor = decoration.focusedBorderColor;
+    Color? focusedBorderColor = decoration.focusedBorderColor;
     if (focusedBorderColor == null) {
       if (themeData.brightness == Brightness.light)
         focusedBorderColor = themeData.primaryColor;
@@ -232,14 +238,14 @@ class SimpleTextField extends StatelessWidget {
     final focusedErrorBorder = defBorder.copyWith(
         borderSide: defFocusedBorderSide.copyWith(color: focusedErrorBorderColor));
 
-    EdgeInsetsGeometry contentPadding = decoration.contentPadding;
+    EdgeInsetsGeometry? contentPadding = decoration.contentPadding;
     if (decoration.simpleBorder && contentPadding == null)
       contentPadding = const EdgeInsets.symmetric(horizontal: 10.0);
 
     final disabledColor = decoration.disabledColor ?? const Color(0x90DBDBDB);
 
     bool filled = decoration.filled;
-    Color fillColor = decoration.fillColor;
+    Color? fillColor = decoration.fillColor;
     if (decoration.simpleBorder && !filled && !enabled) {
       filled = true;
       fillColor = disabledColor;
@@ -254,6 +260,7 @@ class SimpleTextField extends StatelessWidget {
       helperMaxLines: decoration.helperMaxLines,
       hintText: decoration.hintText,
       hintStyle: decoration.hintStyle,
+      hintTextDirection: decoration.hintTextDirection,
       hintMaxLines: decoration.hintMaxLines,
       errorText: decoration.errorText,
       errorStyle: decoration.errorStyle,
