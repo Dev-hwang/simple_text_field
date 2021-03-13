@@ -1,3 +1,8 @@
+## 2.0.0
+
+* Migrate null safety.
+* Remove deprecated parameter `maxLengthEnforced`.
+
 ## 1.0.2
 
 * README updates.
