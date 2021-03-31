@@ -1,7 +1,7 @@
 library simple_text_field;
 
 export 'package:simple_text_field/simple_input_decoration.dart';
-export 'package:simple_text_field/simple_text_field_title.dart';
+export 'package:simple_text_field/simple_text_field_label.dart';
 
 import 'dart:ui' as ui show BoxHeightStyle, BoxWidthStyle;
 import 'package:flutter/gestures.dart';
@@ -9,15 +9,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:simple_text_field/simple_input_decoration.dart';
-import 'package:simple_text_field/simple_text_field_title.dart';
+import 'package:simple_text_field/simple_text_field_label.dart';
 
 /// A widget that implements a [SimpleTextField].
 class SimpleTextField extends StatelessWidget {
   final TextEditingController? controller;
   final FocusNode? focusNode;
   final SimpleInputDecoration decoration; // Redefine
-  final SimpleTextFieldTitle? title; // New
-  final CrossAxisAlignment titleAlignment;  // New
+  final SimpleTextFieldLabel? label; // New
+  final CrossAxisAlignment labelAlignment;  // New
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
   final TextCapitalization textCapitalization;
@@ -74,8 +74,8 @@ class SimpleTextField extends StatelessWidget {
     this.controller,
     this.focusNode,
     this.decoration = const SimpleInputDecoration(),
-    this.title,
-    this.titleAlignment = CrossAxisAlignment.start,
+    this.label,
+    this.labelAlignment = CrossAxisAlignment.start,
     this.keyboardType,
     this.textInputAction,
     this.textCapitalization = TextCapitalization.none,
@@ -184,11 +184,11 @@ class SimpleTextField extends StatelessWidget {
       restorationId: restorationId
     );
 
-    if (title != null)
+    if (label != null)
       textField = Column(
-        crossAxisAlignment: titleAlignment,
+        crossAxisAlignment: labelAlignment,
         children: [
-          title!,
+          label!,
           textField
         ],
       );

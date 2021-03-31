@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
-/// A widget that implements the title of [SimpleTextField].
-class SimpleTextFieldTitle extends StatelessWidget {
-  final String title;
-  final TextStyle titleStyle;
+/// A widget that implements the label of [SimpleTextField].
+class SimpleTextFieldLabel extends StatelessWidget {
+  final String text;
+  final TextStyle style;
   final TextStyle asterStyle;
   final EdgeInsetsGeometry padding;
   final bool important;
 
-  SimpleTextFieldTitle({
+  const SimpleTextFieldLabel(this.text, {
     Key? key,
-    required this.title,
-    this.titleStyle = const TextStyle(fontSize: 18.0, color: const Color(0xFF333333)),
+    this.style = const TextStyle(fontSize: 18.0, color: const Color(0xFF333333)),
     this.asterStyle = const TextStyle(fontSize: 18.0, color: const Color(0xFFA565E4)),
     this.padding = const EdgeInsets.only(top: 16.0, bottom: 8.0),
     this.important = false
@@ -24,7 +23,7 @@ class SimpleTextFieldTitle extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           children: <TextSpan>[
-            TextSpan(text: title, style: titleStyle),
+            TextSpan(text: text, style: style),
             (important)
                 ? TextSpan(text: '\t*', style: asterStyle)
                 : TextSpan(text: '')
