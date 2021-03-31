@@ -109,7 +109,7 @@ class SimpleInputDecoration {
     this.focusedErrorBorderColor,
     this.borderWidth = 1.0,
     this.focusedBorderWidth = 2.0,
-    this.borderRadius = const BorderRadius.all(Radius.circular(4.0))
+    this.borderRadius = const BorderRadius.all(Radius.circular(2.0))
   })  : assert(borderWidth >= 0.0),
         assert(focusedBorderWidth >= 0.0);
 }
