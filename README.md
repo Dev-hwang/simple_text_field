@@ -13,9 +13,9 @@ dependencies:
 
 ## Package
 
-* [SimpleTextField] - A widget that implements a `SimpleTextField`.
-* [SimpleTextFieldLabel] - A widget that implements the label of `SimpleTextField`.
-* [SimpleInputDecoration] - Creates a bundle of the border, labels, icons, and styles used to decorate a `SimpleTextField`.
+* **SimpleTextField** - A widget that implements a `SimpleTextField`.
+* **SimpleTextFieldLabel** - A widget that implements the label of `SimpleTextField`.
+* **SimpleInputDecoration** - Creates a bundle of the border, labels, icons, and styles used to decorate a `SimpleTextField`.
 
 ### SimpleTextField (※ Show only added options)
 
@@ -53,3 +53,7 @@ dependencies:
 | `borderRadius`* | Set the radius of the border. <br> Default value is `const BorderRadius.all(Radius.circular(2.0))`. |
 
 **Note:** The parameters marked with an asterisk(*) operate when `simpleBorder` is true.
+
+## Support
+
+If you find any bugs or issues while using the plugin, please register an issues on [GitHub](https://github.com/Dev-hwang/simple_text_field/issues). You can also contact us at <hwj930513@naver.com>.
