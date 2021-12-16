@@ -240,7 +240,7 @@ class SimpleTextField extends StatelessWidget {
       if (themeData.brightness == Brightness.light) {
         focusedBorderColor = themeData.primaryColor;
       } else {
-        focusedBorderColor = themeData.accentColor;
+        focusedBorderColor = themeData.colorScheme.secondary;
       }
     }
     final focusedErrorBorderColor =
