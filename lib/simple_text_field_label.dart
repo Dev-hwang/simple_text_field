@@ -8,13 +8,14 @@ class SimpleTextFieldLabel extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final bool important;
 
-  const SimpleTextFieldLabel(this.text,
-      {Key? key,
-      this.style,
-      this.asterStyle,
-      this.padding = const EdgeInsets.only(top: 16.0, bottom: 8.0),
-      this.important = false})
-      : super(key: key);
+  const SimpleTextFieldLabel(
+    this.text, {
+    Key? key,
+    this.style,
+    this.asterStyle,
+    this.padding = const EdgeInsets.only(top: 16.0, bottom: 8.0),
+    this.important = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
