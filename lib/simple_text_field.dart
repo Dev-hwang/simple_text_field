@@ -11,6 +11,10 @@ import 'package:flutter/services.dart';
 import 'package:simple_text_field/simple_input_decoration.dart';
 import 'package:simple_text_field/simple_text_field_label.dart';
 
+const String _kIgnoreWsExp = r"[\s]";
+const String _kIgnoreScExp =
+    r"[^ㄱ-ㅎ|ㅏ-ㅣ|가-힣\u318D\u119E\u11A2\u2022\u2025a\u00B7\uFE55\w\s]";
+
 /// A widget that implements a [SimpleTextField].
 class SimpleTextField extends StatelessWidget {
   final TextEditingController? controller;
@@ -206,11 +210,10 @@ class SimpleTextField extends StatelessWidget {
       result.addAll(inputFormatters!);
     }
     if (ignoreWhiteSpace) {
-      result.add(FilteringTextInputFormatter.deny(RegExp(r"[\s]")));
+      result.add(FilteringTextInputFormatter.deny(RegExp(_kIgnoreWsExp)));
     }
     if (ignoreSpecialChar) {
-      result.add(FilteringTextInputFormatter.deny(RegExp(
-          r"[^ㄱ-ㅎ|ㅏ-ㅣ|가-힣\u318D\u119E\u11A2\u2022\u2025a\u00B7\uFE55\w\s]")));
+      result.add(FilteringTextInputFormatter.deny(RegExp(_kIgnoreScExp)));
     }
 
     return result;
