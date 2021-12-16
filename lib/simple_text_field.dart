@@ -184,26 +184,27 @@ class SimpleTextField extends StatelessWidget {
       restorationId: restorationId
     );
 
-    if (label != null)
+    if (label != null) {
       textField = Column(
         crossAxisAlignment: labelAlignment,
-        children: [
-          label!,
-          textField
-        ],
+        children: [label!, textField],
       );
+    }
 
     return textField;
   }
 
   List<TextInputFormatter> _getInputFormatters() {
     final result = <TextInputFormatter>[];
-    if (inputFormatters != null && inputFormatters!.isNotEmpty)
+    if (inputFormatters != null && inputFormatters!.isNotEmpty) {
       result.addAll(inputFormatters!);
-    if (ignoreWhiteSpace)
+    }
+    if (ignoreWhiteSpace) {
       result.add(FilteringTextInputFormatter.deny(RegExp(r"[\s]")));
-    if (ignoreSpecialChar)
+    }
+    if (ignoreSpecialChar) {
       result.add(FilteringTextInputFormatter.deny(RegExp(r"[^ㄱ-ㅎ|ㅏ-ㅣ|가-힣\u318D\u119E\u11A2\u2022\u2025a\u00B7\uFE55\w\s]")));
+    }
 
     return result;
   }
@@ -225,10 +226,11 @@ class SimpleTextField extends StatelessWidget {
 
     Color? focusedBorderColor = decoration.focusedBorderColor;
     if (focusedBorderColor == null) {
-      if (themeData.brightness == Brightness.light)
+      if (themeData.brightness == Brightness.light) {
         focusedBorderColor = themeData.primaryColor;
-      else
+      } else {
         focusedBorderColor = themeData.accentColor;
+      }
     }
     final focusedErrorBorderColor = decoration.focusedErrorBorderColor
         ?? themeData.errorColor;
@@ -239,8 +241,9 @@ class SimpleTextField extends StatelessWidget {
         borderSide: defFocusedBorderSide.copyWith(color: focusedErrorBorderColor));
 
     EdgeInsetsGeometry? contentPadding = decoration.contentPadding;
-    if (decoration.simpleBorder && contentPadding == null)
+    if (decoration.simpleBorder && contentPadding == null) {
       contentPadding = const EdgeInsets.symmetric(horizontal: 10.0);
+    }
 
     final disabledColor = decoration.disabledColor ?? const Color(0x90DBDBDB);
 

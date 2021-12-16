@@ -28,7 +28,7 @@ class SimpleTextFieldLabel extends StatelessWidget {
             (important)
                 ? TextSpan(text: '\t*', style: asterStyle
                 ?? Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).primaryColor))
-                : TextSpan(text: '')
+                : const TextSpan(text: '')
           ],
         ),
       ),
