@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 /// Creates a bundle of the border, labels, icons, and styles used to decorate a [SimpleTextField].
 class SimpleInputDecoration {
   final Icon? icon;
+  final Widget? label;
   final String? labelText;
   final TextStyle? labelStyle;
   final String? helperText;
@@ -58,6 +59,7 @@ class SimpleInputDecoration {
 
   const SimpleInputDecoration(
       {this.icon,
+      this.label,
       this.labelText,
       this.labelStyle,
       this.helperText,

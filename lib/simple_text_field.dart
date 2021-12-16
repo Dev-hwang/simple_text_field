@@ -261,6 +261,7 @@ class SimpleTextField extends StatelessWidget {
 
     return InputDecoration(
         icon: decoration.icon,
+        label: decoration.label,
         labelText: decoration.labelText,
         labelStyle: decoration.labelStyle,
         helperText: decoration.helperText,
