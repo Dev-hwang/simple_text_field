@@ -66,6 +66,7 @@ class SimpleTextField extends StatelessWidget {
   final ScrollPhysics? scrollPhysics;
   final Iterable<String>? autofillHints;
   final String? restorationId;
+  final bool enableIMEPersonalizedLearning;
   final bool ignoreWhiteSpace; // New
   final bool ignoreSpecialChar; // New
 
@@ -124,6 +125,7 @@ class SimpleTextField extends StatelessWidget {
       this.scrollPhysics,
       this.autofillHints,
       this.restorationId,
+      this.enableIMEPersonalizedLearning = true,
       this.ignoreWhiteSpace = false,
       this.ignoreSpecialChar = false})
       : super(key: key);
@@ -181,7 +183,8 @@ class SimpleTextField extends StatelessWidget {
         scrollController: scrollController,
         scrollPhysics: scrollPhysics,
         autofillHints: autofillHints,
-        restorationId: restorationId);
+        restorationId: restorationId,
+        enableIMEPersonalizedLearning: enableIMEPersonalizedLearning);
 
     if (label != null) {
       textField = Column(
