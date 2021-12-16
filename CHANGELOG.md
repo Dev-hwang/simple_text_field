@@ -1,3 +1,12 @@
+## 2.1.0
+
+* Add `enableIMEPersonalizedLearning` option.
+* Add `label` decoration option.
+* Add `floatingLabelStyle` decoration option.
+* Add `constraints` decoration option.
+* Replace deprecated themeData with new themeData.
+* Fix dart formatting issues.
+
 ## 2.0.2
 
 * README updates.
