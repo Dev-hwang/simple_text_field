@@ -6,6 +6,7 @@ class SimpleInputDecoration {
   final Widget? label;
   final String? labelText;
   final TextStyle? labelStyle;
+  final TextStyle? floatingLabelStyle;
   final String? helperText;
   final TextStyle? helperStyle;
   final int? helperMaxLines;
@@ -62,6 +63,7 @@ class SimpleInputDecoration {
       this.label,
       this.labelText,
       this.labelStyle,
+      this.floatingLabelStyle,
       this.helperText,
       this.helperStyle,
       this.helperMaxLines,

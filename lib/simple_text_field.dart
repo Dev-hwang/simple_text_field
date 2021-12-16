@@ -264,6 +264,7 @@ class SimpleTextField extends StatelessWidget {
         label: decoration.label,
         labelText: decoration.labelText,
         labelStyle: decoration.labelStyle,
+        floatingLabelStyle: decoration.floatingLabelStyle,
         helperText: decoration.helperText,
         helperStyle: decoration.helperStyle,
         helperMaxLines: decoration.helperMaxLines,
