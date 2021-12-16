@@ -8,13 +8,13 @@ class SimpleTextFieldLabel extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final bool important;
 
-  const SimpleTextFieldLabel(this.text, {
-    Key? key,
-    this.style,
-    this.asterStyle,
-    this.padding = const EdgeInsets.only(top: 16.0, bottom: 8.0),
-    this.important = false
-  })  : super(key: key);
+  const SimpleTextFieldLabel(this.text,
+      {Key? key,
+      this.style,
+      this.asterStyle,
+      this.padding = const EdgeInsets.only(top: 16.0, bottom: 8.0),
+      this.important = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +23,17 @@ class SimpleTextFieldLabel extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           children: <TextSpan>[
-            TextSpan(text: text, style: style
-                ?? Theme.of(context).textTheme.subtitle1),
-            (important)
-                ? TextSpan(text: '\t*', style: asterStyle
-                ?? Theme.of(context).textTheme.subtitle1?.copyWith(color: Theme.of(context).primaryColor))
+            TextSpan(
+                text: text,
+                style: style ?? Theme.of(context).textTheme.subtitle1),
+            important
+                ? TextSpan(
+                    text: '\t*',
+                    style: asterStyle ??
+                        Theme.of(context)
+                            .textTheme
+                            .subtitle1
+                            ?.copyWith(color: Theme.of(context).primaryColor))
                 : const TextSpan(text: '')
           ],
         ),
