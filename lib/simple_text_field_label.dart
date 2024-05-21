@@ -10,12 +10,12 @@ class SimpleTextFieldLabel extends StatelessWidget {
 
   const SimpleTextFieldLabel(
     this.text, {
-    Key? key,
+    super.key,
     this.style,
     this.asterStyle,
     this.padding = const EdgeInsets.only(top: 16.0, bottom: 8.0),
     this.important = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +26,14 @@ class SimpleTextFieldLabel extends StatelessWidget {
           children: <TextSpan>[
             TextSpan(
                 text: text,
-                style: style ?? Theme.of(context).textTheme.subtitle1),
+                style: style ?? Theme.of(context).textTheme.labelMedium),
             important
                 ? TextSpan(
                     text: '\t*',
                     style: asterStyle ??
                         Theme.of(context)
                             .textTheme
-                            .subtitle1
+                            .labelMedium
                             ?.copyWith(color: Theme.of(context).primaryColor))
                 : const TextSpan(text: '')
           ],

@@ -1,15 +1,15 @@
 library simple_text_field;
 
-export 'package:simple_text_field/simple_input_decoration.dart';
-export 'package:simple_text_field/simple_text_field_label.dart';
-
 import 'dart:ui' as ui show BoxHeightStyle, BoxWidthStyle;
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:simple_text_field/simple_input_decoration.dart';
 import 'package:simple_text_field/simple_text_field_label.dart';
+
+export 'package:simple_text_field/simple_input_decoration.dart';
+export 'package:simple_text_field/simple_text_field_label.dart';
 
 const String _kIgnoreWsExp = r"[\s]";
 const String _kIgnoreScExp =
@@ -44,6 +44,7 @@ class SimpleTextField extends StatelessWidget {
   final int? minLines;
   final bool expands;
   final int? maxLength;
+
   // final bool maxLengthEnforced; // Deprecated
   final MaxLengthEnforcement? maxLengthEnforcement;
   final ValueChanged<String>? onChanged;
@@ -75,7 +76,7 @@ class SimpleTextField extends StatelessWidget {
   final bool ignoreSpecialChar; // New
 
   const SimpleTextField({
-    Key? key,
+    super.key,
     this.controller,
     this.focusNode,
     this.decoration = const SimpleInputDecoration(),
@@ -132,7 +133,7 @@ class SimpleTextField extends StatelessWidget {
     this.enableIMEPersonalizedLearning = true,
     this.ignoreWhiteSpace = false,
     this.ignoreSpecialChar = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -227,8 +228,7 @@ class SimpleTextField extends StatelessWidget {
 
     final borderColor = decoration.borderColor ??
         themeData.colorScheme.onSurface.withOpacity(0.38);
-    final errorBorderColor =
-        decoration.errorBorderColor ?? themeData.errorColor;
+    final errorBorderColor = decoration.errorBorderColor ?? Colors.red;
 
     final border = defBorder.copyWith(
         borderSide: defBorderSide.copyWith(color: borderColor));
@@ -244,7 +244,7 @@ class SimpleTextField extends StatelessWidget {
       }
     }
     final focusedErrorBorderColor =
-        decoration.focusedErrorBorderColor ?? themeData.errorColor;
+        decoration.focusedErrorBorderColor ?? Colors.red;
 
     final focusedBorder = defBorder.copyWith(
         borderSide: defFocusedBorderSide.copyWith(color: focusedBorderColor));

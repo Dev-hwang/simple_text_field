@@ -17,6 +17,7 @@ class SimpleInputDecoration {
   final String? errorText;
   final TextStyle? errorStyle;
   final int? errorMaxLines;
+
   // final bool hasFloatingPlaceholder; // Deprecated
   final FloatingLabelBehavior? floatingLabelBehavior;
   final bool isCollapsed;
