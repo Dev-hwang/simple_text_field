@@ -1,3 +1,7 @@
+## 3.0.0
+
+* [**BREAKING**] Redesign package to support flutter 3.0
+
 ## 2.1.0
 
 * Add `enableIMEPersonalizedLearning` option.
