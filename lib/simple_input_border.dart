@@ -46,4 +46,29 @@ class SimpleInputBorder {
 
   /// The radius of the focused border. <br> If this value is null, [radius] will be followed.
   final BorderRadius? focusedRadius;
+
+  SimpleInputBorder copyWith({
+    SimpleInputBorderStyle? style,
+    Color? color,
+    Color? errorColor,
+    Color? focusedColor,
+    Color? focusedErrorColor,
+    Color? disabledColor,
+    double? width,
+    double? focusedWidth,
+    BorderRadius? radius,
+    BorderRadius? focusedRadius,
+  }) =>
+      SimpleInputBorder(
+        style: style ?? this.style,
+        color: color ?? this.color,
+        errorColor: errorColor ?? this.errorColor,
+        focusedColor: focusedColor ?? this.focusedColor,
+        focusedErrorColor: focusedErrorColor ?? this.focusedErrorColor,
+        disabledColor: disabledColor ?? this.disabledColor,
+        width: width ?? this.width,
+        focusedWidth: focusedWidth ?? this.focusedWidth,
+        radius: radius ?? this.radius,
+        focusedRadius: focusedRadius ?? this.focusedRadius,
+      );
 }
