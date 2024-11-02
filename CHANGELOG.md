@@ -1,3 +1,8 @@
+## 3.2.0
+
+* [**FEAT**] Add `copyWith` to SimpleInputDecoration
+* [**FEAT**] Add `copyWith` to SimpleInputBorder
+
 ## 3.0.0
 
 * [**BREAKING**] Redesign package to support flutter 3.0

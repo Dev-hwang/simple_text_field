@@ -9,7 +9,7 @@ To use this package, add `simple_text_field` as a [dependency in your pubspec.ya
 
 ```yaml
 dependencies:
-  simple_text_field: ^3.0.0
+  simple_text_field: ^3.2.0
 ```
 
 ## How to use

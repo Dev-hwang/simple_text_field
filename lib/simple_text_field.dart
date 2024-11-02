@@ -308,12 +308,16 @@ class SimpleTextField extends StatelessWidget {
   }
 
   List<TextInputFormatter> _makeInputFormatters() {
+    const String denyWhiteSpace = r"\s";
+    const String denySpecialCharacters =
+        r"[^ㄱ-ㅎ|ㅏ-ㅣ|가-힣\u318D\u119E\u11A2\u2022\u2025a\u00B7\uFE55\w\s]";
+
     return [
       if (inputFormatters != null) ...inputFormatters!,
-      if (!allowWhiteSpace) FilteringTextInputFormatter.deny(RegExp(r"\s")),
+      if (!allowWhiteSpace)
+        FilteringTextInputFormatter.deny(RegExp(denyWhiteSpace)),
       if (!allowSpecialCharacters)
-        FilteringTextInputFormatter.deny(RegExp(
-            r"[^ㄱ-ㅎ|ㅏ-ㅣ|가-힣\u318D\u119E\u11A2\u2022\u2025a\u00B7\uFE55\w\s]")),
+        FilteringTextInputFormatter.deny(RegExp(denySpecialCharacters)),
     ];
   }
 }
